@@ -10,7 +10,9 @@ class HomepageController extends AbstractController {
 
     #[Route(path: '/', name: 'homepage')]
     public function homepage(): Response {
-
+        return $this->render('templates/homepage.html.twig', [
+            'content' => true
+        ]);
     }
 
 }
