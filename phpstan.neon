@@ -1,0 +1,17 @@
+parameters:
+    level: 8
+
+    # see https://phpstan.org/config-reference#parallel-processing
+    parallel:
+        maximumNumberOfProcesses: 6
+        # sometimes fails on default 60s on local maschine
+        processTimeout: 120.0
+
+    # clean up once in a few weeks, so it's not bothering us
+    reportUnmatchedIgnoredErrors: false
+
+    paths:
+        - "src"
+
+    excludes_analyse:
+        # add broken files here
