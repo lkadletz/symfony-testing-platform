@@ -8,9 +8,14 @@ use Twig\TwigFunction;
 
 class AppExtension extends AbstractExtension {
 
-    public function getFunctions() {
+    public function getFunctions() : array{
         return [
-            new TwigFunction('tableBuilder', [TableBuilderExtension::class, 'tableBuilder'])
+            new TwigFunction('tableBuilder',
+                [TableBuilderExtension::class, 'tableBuilder'],
+                [
+                    'needs_environment' => true,
+                    'is_safe' => ['html']
+                ])
         ];
     }
 }
