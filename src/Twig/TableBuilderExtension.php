@@ -22,8 +22,10 @@ class TableBuilderExtension implements RuntimeExtensionInterface {
      * @throws \Twig\Error\SyntaxError
      */
     public function tableBuilder(Environment $environment, array $tableArray) : string {
-        return $environment->render($environment->load('tableBuilder/test.html.twig'), [
-            'tableArray' => $tableArray
+        return $environment->render($environment->load('tableBuilder/layout.html.twig'), [
+            'thead' => $tableArray['header'] ?? [],
+            'tbody' => $tableArray['body'] ?? [],
+            'tfoot' => $tableArray['footer'] ?? []
         ]);
     }
 }
