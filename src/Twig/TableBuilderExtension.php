@@ -28,4 +28,8 @@ class TableBuilderExtension implements RuntimeExtensionInterface {
             'tfoot' => $tableArray['footer'] ?? []
         ]);
     }
+
+    public function one(int $number): int {
+        return $number + 1;
+    }
 }

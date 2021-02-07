@@ -15,7 +15,15 @@ class AppExtension extends AbstractExtension {
                 [
                     'needs_environment' => true,
                     'is_safe' => ['html']
-                ])
+                ]),
+            new TwigFunction('one',
+                [TableBuilderExtension::class, 'one']),
+            new TwigFunction('one2',
+                [$this, 'one2']),
         ];
+    }
+
+    public function one2(int $number) {
+        return $number + 2;
     }
 }

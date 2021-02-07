@@ -1,0 +1,11 @@
+--TEST--
+"one" function
+--TEMPLATE--
+{{ one(number1) == expect1 ? 'OK' : 'KO' }}
+--DATA--
+return [
+    'number1' => 22,
+    'expect1' => 23,
+]
+--EXPECT--
+OK
