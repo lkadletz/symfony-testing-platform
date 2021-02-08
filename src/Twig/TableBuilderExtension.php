@@ -9,10 +9,6 @@ use Twig\Extension\RuntimeExtensionInterface;
 
 class TableBuilderExtension implements RuntimeExtensionInterface {
 
-    public function __construct() {
-
-    }
-
     /**
      * @param Environment $environment
      * @param array<mixed> $tableArray
