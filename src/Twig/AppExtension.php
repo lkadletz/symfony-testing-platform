@@ -21,6 +21,9 @@ class AppExtension extends AbstractExtension {
             new TwigFunction('one',
                 [TableBuilderExtension::class, 'one']
             ),
+            new TwigFunction('obj',
+                [TableBuilderExtension::class, 'obj']
+            ),
         ];
     }
 }

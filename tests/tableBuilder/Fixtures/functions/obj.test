@@ -1,0 +1,10 @@
+--TEST--
+"obj" function
+--TEMPLATE--
+{{ obj(date) == '2021' ? 'OK' : 'KO' }}
+--DATA--
+return [
+    'date' => new DateTime()
+]
+--EXPECT--
+OK

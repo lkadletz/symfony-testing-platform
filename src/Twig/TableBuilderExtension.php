@@ -28,4 +28,8 @@ class TableBuilderExtension implements RuntimeExtensionInterface {
     public function one(int $number): int {
         return $number + 1;
     }
+
+    public function obj(\DateTime $dateTime) {
+        return $dateTime->format('Y');
+    }
 }
