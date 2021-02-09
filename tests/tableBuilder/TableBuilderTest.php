@@ -35,6 +35,4 @@ class TableBuilderTest extends IntegrationTestCase {
         ];
     }
 
-
-
 }
