@@ -30,7 +30,8 @@
     ,
     "require-dev": {
         "roave/security-advisories": "dev-master",
-        "sensiolabs/security-checker": "^6.0"
+        "sensiolabs/security-checker": "^6.0",
+        "symfony/maker-bundle": "^1.29"
     },
     "config": {
         "optimize-autoloader": true,

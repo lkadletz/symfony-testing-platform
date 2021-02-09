@@ -1,0 +1,20 @@
+--TEST--
+"tableBuilder" function
+--TEMPLATE--
+{{ tableBuilder(array1) }}
+--DATA--
+return [
+    'array1' => [
+        'header' => [
+            ['A', 'B']
+        ],
+        'body' => [
+            [123, 456],
+        ],
+        'footer' => [
+            ['F1', 'F2']
+        ]
+    ]
+]
+--EXPECT--
+OK
