@@ -1,31 +1,26 @@
+{# table instanceof Table #}
+
 <table>
-    <caption>TEST</caption>
+    <caption>{{ table.getName }}</caption>
 
     {# -- HEADER -- #}
-    {% if tfoot != [] %}
-    <thead>
-        {% for row in thead %}
+    {% if table.isExistsColumns > 0 %}
+        <thead>
             <tr>
-                {% for cell in row %}
-                    <th>{{ cell }}</th>
-                {% endfor %}
+            {% for col in table.getColumns %}
+                <th>{{ col.getName }}</th>
+            {% endfor %}
             </tr>
-        {% endfor %}
-    </thead>
+        </thead>
     {% endif %}
 
     {# -- BODY -- #}
-    {% if tbody != [] %}
+    {% if table.isExistsRows %}
     <tbody>
-        {% for row in tbody %}
+        {% for row in table.getRows %}
             <tr>
-                {% for cell in row %}
-                    {% if cell == 0 %}
-                        {% set reqs = [cell] %}
-                        <td>{% include 'tableBuilder/_integer.html.twig' with reqs %}</td>
-                    {% else %}
-                        <td>{{ cell }}</td>
-                    {% endif %}
+                {% for cell in row.getCells %}
+                    <td>{{ cell.getContent }}</td>
                 {% endfor %}
             </tr>
         {% endfor %}
@@ -33,15 +28,16 @@
     {% endif %}
 
     {# -- FOOTER -- #}
-    {% if tfoot != [] %}
+    {% if table.isExistsFooter %}
     <tfoot>
-        {% for row in tfoot %}
+        {% for row in table.getFooterRows %}
             <tr>
-                {% for cell in row %}
-                    <td>{{ cell }}</td>
+                {% for cell in row.getCells %}
+                    <td>{{ cell.getContent }}</td>
                 {% endfor %}
             </tr>
         {% endfor %}
     </tfoot>
     {% endif %}
+
 </table>

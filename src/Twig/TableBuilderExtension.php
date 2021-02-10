@@ -4,6 +4,7 @@
 namespace App\Twig;
 
 
+use App\TableBuilder\Table;
 use Twig\Environment;
 use Twig\Extension\RuntimeExtensionInterface;
 
@@ -17,11 +18,10 @@ class TableBuilderExtension implements RuntimeExtensionInterface {
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function tableBuilder(Environment $environment, array $tableArray) : string {
+    public function tableBuilder(Environment $environment, Table $table) : string {
+
         return $environment->render($environment->load('tableBuilder/layout.html.twig'), [
-            'thead' => $tableArray['header'] ?? [],
-            'tbody' => $tableArray['body'] ?? [],
-            'tfoot' => $tableArray['footer'] ?? []
+            'table' => $table
         ]);
     }
 

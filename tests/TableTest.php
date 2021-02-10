@@ -16,4 +16,13 @@ class TableTest extends TestCase
         $table->setName('tableName2');
         $this->assertSame('tableName2', $table->getName());
     }
+
+
+    public function testBuilder1() {
+        $table = new Table('name');
+
+        $col = $table->addColumn('firstCol');
+        $this->assertSame('firstCol', $col->getName());
+
+    }
 }
